@@ -1,33 +1,49 @@
-HELP.md
+### Maven ###
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+.mvn/wrapper/maven-wrapper.jar  # Keep wrapper JAR (required)
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
+### IDE ###
+# IntelliJ
+.idea/
 *.iml
+*.iws
 *.ipr
+out/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+# VS Code
 .vscode/
+
+# Eclipse/Spring Tool Suite
+.classpath
+.project
+.settings/
+.apt_generated
+.springBeans
+.sts4-cache/
+
+# NetBeans
+nbproject/private/
+nbdist/
+nbbuild/
+build/  # Gradle/Maven (covers both)
+
+### Build ###
+# Exclude build folders except for wrapper
+!**/mvnw
+!**/mvnw.cmd
+!**/.mvn/
+
+### Logs ###
+logs/
+*.log
+
+### Environment ###
+*.env
+*.env.local
+
+### System ###
+.DS_Store
+Thumbs.db
+
+### Spring Boot ###
+!HELP.md  # Keep Spring Boot's HELP.md
