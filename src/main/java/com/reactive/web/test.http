@@ -1,0 +1,31 @@
+### Get all products
+GET http://localhost:9292/products
+
+### Get product by ID (replace {id} with actual ID)
+GET http://localhost:9292/products/65f1b2a3e4b0d74f8c8f3d4c
+
+### Create new product
+POST http://localhost:9292/products
+Content-Type: application/json
+
+{
+  "name": "Laptop",
+  "qty": "10",
+  "price": 999.99
+}
+
+### Update product (replace {id} with actual ID)
+PUT http://localhost:9292/products/update/6791224f54228779bc86cd15
+Content-Type: application/json
+
+{
+  "name": "Updated Laptop",
+  "qty": "15",
+  "price": 1099.99
+}
+
+### Delete product (replace {id} with actual ID)
+DELETE http://localhost:9292/products/delete/6791224f54228779bc86cd15
+
+### Get products in price range
+GET http://localhost:9292/products/product-range?min=500&max=1500

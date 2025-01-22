@@ -37,10 +37,18 @@ public class ProductService {
     }
 
 
-    public Mono<ProductDto> updateProduct(Mono<ProductDto> productDtoMono ,String id){
-        return repository.findById(id)
-                .flatMap(p->productDtoMono.map(AppUtils::dtoToEntity)
-                .doOnNext(e->e.setId(id)))
+//    public Mono<ProductDto> updateProduct(Mono<ProductDto> productDtoMono ,String id){
+//        return repository.findById(id)
+//                .flatMap(p->productDtoMono.map(AppUtils::dtoToEntity)
+//                .doOnNext(e->e.setId(id)))
+//                .flatMap(repository::save)
+//                .map(AppUtils::entityToDto);
+//    }
+
+    public Mono<ProductDto> updateProduct(Mono<ProductDto> productDtoMono, String id) {
+        return productDtoMono
+                .map(AppUtils::dtoToEntity)
+                .doOnNext(e -> e.setId(id)) // Set ID before saving
                 .flatMap(repository::save)
                 .map(AppUtils::entityToDto);
     }
